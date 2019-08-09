@@ -11,12 +11,6 @@ region      = "${var.region}"
 resource "aws_instance" "Teste" {
   ami = "${var.ami}"
   instance_type = "${var.type}"
-  
-  user_data = <<-EOF
-   #!/bin/bash
-   echo "Hello, World" > index.html
-   nohup busybox httpd -f -p "${var.port}" &
-   EOF
 
   tags {
     Name = "instanciada"
